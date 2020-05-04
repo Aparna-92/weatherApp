@@ -14,7 +14,7 @@ const Forecast = () => {
     let apiId='d80a03ed78a86f1feb8f4897bbd21a3a'
 
 
-
+//fetching the Forecast data
 function getForecast(e) {
     e.preventDefault();
 

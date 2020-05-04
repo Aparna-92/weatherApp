@@ -15,6 +15,7 @@ import HourlyForecast from './HourlyForecast'
 import dayjs from "dayjs";
 
 const conditions = (props) => {
+  // get the daily forecast for 5 days
   function getDailyData()
   {
      let dayForecast=[];
