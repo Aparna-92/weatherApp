@@ -11,6 +11,16 @@ import {
 
 export default function DailyForecast(props) {
   
+  function getUnit() {
+    if (props.unit === 'metric') {
+      return <span>&#8451;</span>;
+    }
+    else {
+      return <span>&#8457;</span>;
+    }
+
+  }
+
   const result = props.forecastData.map((item, index) => {
     return (
       <div>
@@ -31,7 +41,7 @@ export default function DailyForecast(props) {
           
           <span className="temp" style={{ flex: "1 1 0%", textAlign: "center" }}>
             <Typography variant="body2" component="span" >
-            Temp :{Math.round(item.main.temp)}{" "}<span>&#8451;</span>
+            Temp :{Math.round(item.main.temp)}{" "}{getUnit()}
             </Typography>
            
           </span>

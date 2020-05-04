@@ -49,6 +49,7 @@ const conditions = (props) => {
                todayData={props.responseObj}
                error={props.error}
                loading={props.loading}
+               unit={props.unit}
                />       
                 </div>
                 
@@ -60,6 +61,7 @@ const conditions = (props) => {
                   error={props.error}
                   loading={props.loading}
                   cityInfo={props.responseObj.city}
+                  unit={props.unit}
                   />       
                    </div>
                    
@@ -72,6 +74,7 @@ const conditions = (props) => {
                error={props.error}
                loading={props.loading}
                cityInfo={props.responseObj.city}
+               unit={props.unit}
                /> 
                </div> 
             :null     

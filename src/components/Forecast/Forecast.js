@@ -7,6 +7,7 @@ const Forecast = () => {
 
     let [zipcode, setZipcode] = useState('94040');
     let [condition, setCondition] = useState('current');
+    let [unit, setUnit] = useState('imperial');
     let [responseObj, setResponseObj] = useState({});
     let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
@@ -42,7 +43,7 @@ function getForecast(e) {
         apiUrl='http://api.openweathermap.org/data/2.5/forecast?zip='
     }
     
-    fetch(`${apiUrl}${zipcode}&APPID=${apiId}&units=metric`, {
+    fetch(`${apiUrl}${zipcode}&APPID=${apiId}&units=${unit}`, {
         "method": "GET",
         "headers": {
            
@@ -104,6 +105,27 @@ function getForecast(e) {
                         />
                     Daily
                 </label>
+<br/>
+                <label className={classes.Radio}>
+                    <input
+                        type="radio"
+                        name="unit"
+                        checked={unit === "imperial"}
+                        value="imperial"
+                        onChange={(e) => setUnit(e.target.value)}
+                        />
+                    Fahrenheit
+                </label>
+                <label className={classes.Radio}>
+                    <input
+                        type="radio"
+                        name="unit"
+                        checked={unit === "metric"}
+                        value="metric"
+                        onChange={(e) => setUnit(e.target.value)}
+                        />
+                    Celsius
+                </label>
 
         <button className={classes.Button} type="submit">Get Forecast</button>
     </form>
@@ -113,6 +135,7 @@ function getForecast(e) {
        error={error}
        loading={loading}
        condition={condition}
+       unit={unit}
        />
 </div>
    );
